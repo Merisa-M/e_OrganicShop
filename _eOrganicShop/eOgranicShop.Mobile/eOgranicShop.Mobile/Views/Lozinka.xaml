@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eOgranicShop.Mobile.Views.Lozinka"
+             Title="Lozinka">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="buttonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="LightPink" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Padding="35">
+            <Label Text="Trenutna lozinka" ></Label>
+            <Entry x:Name="TrenutnaLozinka" IsPassword="True"></Entry>
+
+            <Label Text="Nova lozinka"></Label>
+            <Entry x:Name="NovaLozinka" IsPassword="True"></Entry>
+
+            <Label Text="Potvrdi novu lozinku"></Label>
+            <Entry x:Name="PotvrdiLozinku" IsPassword="True"></Entry>
+
+            <Button Clicked="Button_Clicked" HorizontalOptions="FillAndExpand" Text="Sačuvaj" Style="{StaticResource buttonStyle}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

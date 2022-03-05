@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:eOgranicShop.Mobile.ViewModels"
+             x:Class="eOgranicShop.Mobile.Views.TransakcijePage">
+    <ContentPage.BindingContext>
+        <vm:TransakcijeVM></vm:TransakcijeVM>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Label Text="Moje transakcije" Margin="20" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+
+            <StackLayout>
+                <Label Text="Od:" Margin="20,0,20,0"  FontAttributes="Bold" HorizontalOptions="Center"></Label>
+                <DatePicker Date="{Binding From}" Margin="20,0,20,10"  HorizontalOptions="Fill" ></DatePicker>
+                <Label Text="Do:" Margin="20,0,20,0" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+                <DatePicker Date="{Binding To}" Margin="20,0,20,0" HorizontalOptions="Fill" ></DatePicker>
+            </StackLayout>
+            <ListView ItemsSource="{Binding TransactionList}" ItemSelected="ListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding NazivProizvoda}" 
+                                           LineBreakMode="NoWrap" 
+                                           FontSize="16" />
+                                    <Label Text="{Binding DatumTranskacije}" 
+                                           LineBreakMode="NoWrap" 
+                                           FontSize="16" />
+                                    <Label Text="{Binding Cijena, StringFormat='Cijena: {0:C}'}" 
+                                           LineBreakMode="NoWrap"
+                                           FontSize="13" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:eOgranicShop.Mobile.Converters" 
+             xmlns:vm="clr-namespace:eOgranicShop.Mobile.ViewModels"
+             xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms"
+             x:Class="eOgranicShop.Mobile.Views.KupljeniProizvodDetalji">
+    <ContentPage.BindingContext>
+        <vm:KupljeniProizvodDetaljiVM/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="20">
+            <StackLayout Padding="10">
+                <Label Text="Ocijeni: " FontSize="20" TextColor="Black"  HorizontalOptions="Center"></Label>
+                <rating:SfRating 
+                    Value="{Binding Rating}"
+                    Margin="0, 5"
+                    ItemCount="5"
+                    Precision="Standard"
+                    HorizontalOptions="Center"
+                    ValueChanged="SfRating_ValueChanged" />
+            </StackLayout>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto">
+                    </RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Vertical">
+                    <StackLayout>
+                        <Image Source="{Binding Proizvodi.Slika, Converter={StaticResource imgConv}}"></Image>
+                    </StackLayout>
+                    <Label Text="{Binding Proizvodi.NazivProizvoda}">
+                    </Label>
+                    <Label Text="{Binding Proizvodi.Opis}">
+                    </Label>
+                    <Label Text="{Binding Proizvodi.Cijena, StringFormat='Cijena: {0:C}'}"></Label>
+                    <StackLayout Margin="2" Grid.Row="2" Grid.ColumnSpan="2" >
+                        <Label Text="Komentar" TextColor="CadetBlue" FontSize="16" VerticalTextAlignment="Start" HorizontalTextAlignment="Start"></Label>
+                    </StackLayout>
+                    <StackLayout Grid.Row="3" Grid.Column="0" WidthRequest="250">
+                        <Entry Text="{Binding Komentar}" Placeholder="Ostavi komentar ..."></Entry>
+                    </StackLayout>
+                    <StackLayout Grid.Row="3" Grid.Column="1" WidthRequest="20">
+                        <Button Command="{Binding AddCommand}" Text="Add" HorizontalOptions="End" HeightRequest="30" BackgroundColor="RoyalBlue" TextColor="White" FontSize="14" ></Button>
+                    </StackLayout>
+                    <StackLayout Grid.Row="4" Grid.ColumnSpan="2">
+                        <ListView x:Name="myList" ItemsSource="{Binding komentarList}" SelectedItem="{Binding SelectedComment}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Padding="10" Orientation="Horizontal" Spacing="20" Grid.Row="3" Grid.Column="0" >
+                                            <StackLayout Orientation="Vertical">
+                                                <Label Text="{Binding Komentar}" 
+                                           LineBreakMode="MiddleTruncation" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16"
+                                           TextColor="DarkSlateGray"/>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="{Binding Datum}"
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="12" />
+                                                    <Label Text="{Binding Korisnik.KorisnickoIme}"
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="12" />
+                                                </StackLayout>
+                                            </StackLayout>
+                                            <Button Clicked="Button_Clicked" Text="Delete" BackgroundColor="LimeGreen" TextColor="White">
+                                            </Button>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+
+                </StackLayout>
+             
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

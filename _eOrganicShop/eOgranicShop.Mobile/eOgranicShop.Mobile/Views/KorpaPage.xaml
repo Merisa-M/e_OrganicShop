@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewModels="clr-namespace:eOgranicShop.Mobile.ViewModels"
+             x:Class="eOgranicShop.Mobile.Views.KorpaPage"
+             Title="Vaša korpa"
+             >
+    <ContentPage.BindingContext>
+        <viewModels:NarudzbaVM></viewModels:NarudzbaVM>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Trenutna narudzba"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" 
+                   FontSize="24" FontAttributes="Bold"/>
+            <ListView ItemsSource="{Binding NarudzbaList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding Proizvodi.NazivProizvoda}" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16"  />
+                                    <Label Text="{Binding Proizvodi.Cijena,StringFormat='Cijena: {0} KM'}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Kolicina}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Orientation="Vertical" Padding="10" Margin="0">
+                <Label x:Name="lblBrojArtikala" Text="{Binding BrojProizvoda,StringFormat='Broj artikala: {0}'}" FontSize="26" FontAttributes="Italic"></Label>
+                <Label x:Name="lblIznos" Text="{Binding Iznos,StringFormat='Iznos: {0} KM'}" FontSize="26" FontAttributes="Italic"></Label>
+                <Button x:Name="Zakljuci" Text="Zakljuci narudzbu" Clicked="Zakljuci_Clicked" ></Button>
+                <Button x:Name="Otkazi" Text="Otkazi narudzbu" Clicked="Otkazi_Clicked" ></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

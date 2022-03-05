@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:eOgranicShop.Mobile.ViewModels"
+             x:Class="eOgranicShop.Mobile.Views.PreporuceniProizvodiPage">
+    <ContentPage.BindingContext>
+        <vm:PreporuceniProizvodiVM/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout x:Name="bezOcjene" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="False">
+                <Label 
+                       Text="Već ste kupili sve preporučene proizvode ili niste ocijenili ni ti jedan kupljeni proizvod."
+                       TextColor="black"
+                       FontAttributes="Bold"
+                       FontSize="20"
+                       HorizontalTextAlignment="Center">
+                </Label>
+            </StackLayout>
+            <Label x:Name="ProizvodiZaVas" Text="Preporučeni proizvodi" TextColor="black" FontSize="16" HorizontalTextAlignment="Start" Padding="0,15,0,15"></Label>
+
+            <ListView  x:Name="Preporuka" ItemsSource="{Binding _preporuceniProizvodi}" ItemSelected="Preporuka_ItemSelected" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <StackLayout Orientation="Vertical">
+
+                                    <Label Text="{Binding NazivProizvoda}" 
+                                       
+                                          
+                                           FontSize="16"  />
+
+                                    <Label Text="{Binding Cijena,StringFormat='Cijena: ${0:F2}'}" 
+                                   
+                                         
+                                           FontSize="13" />
+                                </StackLayout>
+
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

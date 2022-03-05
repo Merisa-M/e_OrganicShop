@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  eorganicshop-sql:
+    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=QWElkj132!
+      - MSSQL_PID=Developer
+    ports:
+      - 1401:1433
+    networks:
+      - eorganicshop
+
+    
+  eorganicshop-api:
+    image: eorganicshop/api
+    restart: unless-stopped
+    build: .
+    environment:
+      - ConnectionStrings:eOrganicShop=Server=eorganicshop-sql,1433;Database=150254;User=sa;Password=QWElkj132!;ConnectRetryCount=0
+    ports:
+      -  44318:5000
+    networks:
+      - eorganicshop
+    links:
+      - eorganicshop-sql
+    depends_on:
+      - eorganicshop-sql
+      
+networks:
+  eorganicshop:
+    driver: bridge
+
+        

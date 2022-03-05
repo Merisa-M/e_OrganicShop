@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="EOrganicDataSet" targetNamespace="http://tempuri.org/EOrganicDataSet.xsd" xmlns:mstns="http://tempuri.org/EOrganicDataSet.xsd" xmlns="http://tempuri.org/EOrganicDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="EOrganicDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="EOrganicDataSet" msprop:Generator_UserDSName="EOrganicDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Proizvodi" msprop:Generator_TableClassName="ProizvodiDataTable" msprop:Generator_TableVarName="tableProizvodi" msprop:Generator_TablePropName="Proizvodi" msprop:Generator_RowDeletingName="ProizvodiRowDeleting" msprop:Generator_RowChangingName="ProizvodiRowChanging" msprop:Generator_RowEvHandlerName="ProizvodiRowChangeEventHandler" msprop:Generator_RowDeletedName="ProizvodiRowDeleted" msprop:Generator_UserTableName="Proizvodi" msprop:Generator_RowChangedName="ProizvodiRowChanged" msprop:Generator_RowEvArgName="ProizvodiRowChangeEvent" msprop:Generator_RowClassName="ProizvodiRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ProizvodID" msprop:Generator_ColumnVarNameInTable="columnProizvodID" msprop:Generator_ColumnPropNameInRow="ProizvodID" msprop:Generator_ColumnPropNameInTable="ProizvodIDColumn" msprop:Generator_UserColumnName="ProizvodID" type="xs:string" minOccurs="0" />
+              <xs:element name="NazivProizvoda" msprop:Generator_ColumnVarNameInTable="columnNazivProizvoda" msprop:Generator_ColumnPropNameInRow="NazivProizvoda" msprop:Generator_ColumnPropNameInTable="NazivProizvodaColumn" msprop:Generator_UserColumnName="NazivProizvoda" type="xs:string" minOccurs="0" />
+              <xs:element name="Cijena" msprop:Generator_ColumnVarNameInTable="columnCijena" msprop:Generator_ColumnPropNameInRow="Cijena" msprop:Generator_ColumnPropNameInTable="CijenaColumn" msprop:Generator_UserColumnName="Cijena" type="xs:string" minOccurs="0" />
+              <xs:element name="Slika" msprop:Generator_ColumnVarNameInTable="columnSlika" msprop:Generator_ColumnPropNameInRow="Slika" msprop:Generator_ColumnPropNameInTable="SlikaColumn" msprop:Generator_UserColumnName="Slika" type="xs:string" minOccurs="0" />
+              <xs:element name="Opis" msprop:Generator_ColumnVarNameInTable="columnOpis" msprop:Generator_ColumnPropNameInRow="Opis" msprop:Generator_ColumnPropNameInTable="OpisColumn" msprop:Generator_UserColumnName="Opis" type="xs:string" minOccurs="0" />
+              <xs:element name="Sifra" msprop:Generator_ColumnVarNameInTable="columnSifra" msprop:Generator_ColumnPropNameInRow="Sifra" msprop:Generator_ColumnPropNameInTable="SifraColumn" msprop:Generator_UserColumnName="Sifra" type="xs:string" minOccurs="0" />
+              <xs:element name="VrstaProizvodaID" msprop:Generator_ColumnVarNameInTable="columnVrstaProizvodaID" msprop:Generator_ColumnPropNameInRow="VrstaProizvodaID" msprop:Generator_ColumnPropNameInTable="VrstaProizvodaIDColumn" msprop:Generator_UserColumnName="VrstaProizvodaID" type="xs:string" minOccurs="0" />
+              <xs:element name="KorisnikID" msprop:Generator_ColumnVarNameInTable="columnKorisnikID" msprop:Generator_ColumnPropNameInRow="KorisnikID" msprop:Generator_ColumnPropNameInTable="KorisnikIDColumn" msprop:Generator_UserColumnName="KorisnikID" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="ProizvodID">
+      <xs:selector xpath=".//mstns:Proizvodi" />
+      <xs:field xpath="mstns:ProizvodID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

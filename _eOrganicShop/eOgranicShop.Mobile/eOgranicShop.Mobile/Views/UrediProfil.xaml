@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:eOgranicShop.Mobile.ViewModels"
+             x:Class="eOgranicShop.Mobile.Views.UrediProfil">
+    <ContentPage.BindingContext>
+        <vm:UrediProfilVM></vm:UrediProfilVM>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+           
+            <Style x:Key="buttonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="LightPink"></Setter>
+
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Padding="30" VerticalOptions="StartAndExpand">
+            <Label Text="Ime"></Label>
+            <Entry x:Name="Ime"></Entry>
+            <Label Text="Prezime"></Label>
+            <Entry x:Name="Prezime"></Entry>
+            <Label Text="Email"></Label>
+            <Entry x:Name="Email"></Entry>
+            <Label Text="Telefon"></Label>
+            <Entry x:Name="Telefon"></Entry>
+            <Label Text="Korisnicko ime"></Label>
+            <Entry x:Name="KorisnickoIme"></Entry>
+            <Button Clicked="Button_Clicked" HorizontalOptions="FillAndExpand" Text="Sačuvaj" Style="{StaticResource buttonStyle}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

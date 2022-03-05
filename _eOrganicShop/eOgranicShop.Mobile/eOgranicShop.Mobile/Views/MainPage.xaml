@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                  xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                  xmlns:views="clr-namespace:eOgranicShop.Mobile.Views"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                  xmlns:converters="clr-namespace:eOgranicShop.Mobile.Converters"
+                  mc:Ignorable="d"
+                  x:Class="eOgranicShop.Mobile.Views.MainPage">
+    <MasterDetailPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="ImageConverter" />
+
+        </ResourceDictionary>
+    </MasterDetailPage.Resources>
+    <MasterDetailPage.Master>
+        <views:MenuPage />
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <ContentPage Title="eOrganicShop">
+                    <StackLayout>
+                        
+                        <Label HorizontalOptions="Center"
+                               VerticalOptions="Center" FontSize="25" TextColor="Black" Text="Dobrodosli"></Label>
+                    </StackLayout>
+
+                </ContentPage>
+            </x:Arguments>
+            <NavigationPage.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="iOS" Value="slikal.PNG"/>
+                </OnPlatform>
+            </NavigationPage.Icon>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>
