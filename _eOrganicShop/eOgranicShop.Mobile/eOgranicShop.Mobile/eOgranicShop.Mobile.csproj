@@ -7,9 +7,9 @@
 
   <ItemGroup>
     <PackageReference Include="Acr.UserDialogs" Version="7.1.0.468" />
-    <PackageReference Include="Flurl" Version="3.0.2" />
-    <PackageReference Include="Flurl.Http" Version="3.2.0" />
-    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.12" />
+    <PackageReference Include="Flurl" Version="3.0.1" />
+    <PackageReference Include="Flurl.Http" Version="3.0.1" />
+    <PackageReference Include="RxUI.Plugins.Popup" Version="0.3.0" />
     <PackageReference Include="Stripe.net" Version="39.28.0" />
     <PackageReference Include="Syncfusion.Xamarin.SfRating" Version="18.4.0.47" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />

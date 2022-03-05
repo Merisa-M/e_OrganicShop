@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace eOrganicShop.Exceptions
 {
-    public class korisnikException : Exception
+    public class UserException : Exception
     {
-        public korisnikException(string message) :
+        public UserException(string message) :
            base(message)
         {
 

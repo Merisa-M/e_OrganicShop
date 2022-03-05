@@ -1,36 +1,15 @@
-version: '3'
+FROM mcr.microsoft.com/dotnet/aspnet:3.1 AS base
+WORKDIR /app
 
-services:
-  eorganicshop-sql:
-    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
-    restart: unless-stopped
-    environment:
-      - ACCEPT_EULA=Y
-      - SA_PASSWORD=QWElkj132!
-      - MSSQL_PID=Developer
-    ports:
-      - 1401:1433
-    networks:
-      - eorganicshop
+FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
+WORKDIR /src
+COPY . .
 
-    
-  eorganicshop-api:
-    image: eorganicshop/api
-    restart: unless-stopped
-    build: .
-    environment:
-      - ConnectionStrings:eOrganicShop=Server=eorganicshop-sql,1433;Database=150254;User=sa;Password=QWElkj132!;ConnectRetryCount=0
-    ports:
-      -  44318:5000
-    networks:
-      - eorganicshop
-    links:
-      - eorganicshop-sql
-    depends_on:
-      - eorganicshop-sql
-      
-networks:
-  eorganicshop:
-    driver: bridge
+FROM build AS publish
+RUN dotnet publish "eOrganicShop/eOrganicShop.csproj" -c Release -o /app
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app .
 
-        
+
+ENTRYPOINT ["dotnet", "eOrganicShop.dll"]

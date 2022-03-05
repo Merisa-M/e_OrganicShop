@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using eOrganicShop.Database;
+using eOrganicShop.Exceptions;
 using eOrganicShop.Model.Request;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualStudio.Services.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
