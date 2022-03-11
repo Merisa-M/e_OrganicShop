@@ -1,4 +1,4 @@
-Admin -Desktop
+Desktop
 Korisniko ime : admin
 Lozinka : Admin123
 
